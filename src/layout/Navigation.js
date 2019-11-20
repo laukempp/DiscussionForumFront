@@ -1,11 +1,12 @@
 import React from "react";
 import Navbar from "react-bootstrap/navbar";
 import Nav from "react-bootstrap/nav";
-import NavbarBrand from "react-bootstrap/navbarbrand";
 import { Link } from "react-router-dom";
 import Search from './Search';
+import SearchPage from './SearchPage';
 const Navigation = props => {
   return (
+    <div>
     <Navbar className="navbar bg-success">
       <Nav.Link eventKey={1} as={Link} to="/">
            <Nav.Item>{props.title}</Nav.Item>
@@ -26,7 +27,10 @@ const Navigation = props => {
         </Nav.Link>
       </Nav.Item>
       <Search />
+     
     </Navbar>
+    <SearchPage />
+    </div>
   );
 };
 

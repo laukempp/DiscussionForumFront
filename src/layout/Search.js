@@ -1,7 +1,6 @@
 import React from "react";
 import { Route, Switch, withRouter } from "react-router-dom";
-import SearchNotFound from "./SearchPages/SearchNotFound";
-import SearchResult from "./SearchPages/SearchResult";
+
 
 import {Form, FormControl, Button } from "react-bootstrap";
 
@@ -60,11 +59,7 @@ class Search extends React.Component {
                         </Button>
                     </Form>
                 
-                <Switch>
-                    
-                    <Route exact path="/results" component={SearchResult} />
-                    <Route path ="/404" component={SearchNotFound} />
-                </Switch>
+                
             </>
         );
     }

@@ -1,7 +1,7 @@
 import React from "react";
  import {getAllTopics} from "../../service/request";
- 
-export default class SearchResultsPage extends React.Component {
+import SearchNotFound from './SearchNotFound';
+export default class SearchResult extends React.Component {
     state = {
         isLoading: true,
         searchText: "",
@@ -35,20 +35,21 @@ export default class SearchResultsPage extends React.Component {
 
     render() {
         let toRender = this.state.isLoading ? (
-            <h1>Loading...</h1>
+            <h1>Lataa...</h1>
         ) : (
             <>
-                <h1>Your Search Results</h1>
+                <h1>Hakutulos</h1>
                 <ul>
-                    <li>Search: "{this.state.searchText}"</li>
-                    <li>Count: {this.state.searchResults.length}</li>
+                    <li>Hakusana: "{this.state.searchText}"</li>
+                    <li>Osumia: {this.state.searchResults.length}</li>
                 </ul>
                 {this.state.searchResults.length > 0 ? (
+                    
                     <pre>
-                        <small>{JSON.stringify(this.state.searchResults, null, 2)}</small>
+                        <small>{test = JSON.parse(this.state.searchResults, null, 2)}{test.title}</small>
                     </pre>
                 ) : (
-                    <p>NO RESULTS FOUND</p>
+                    <SearchNotFound />
                 )}
             </>
         );
