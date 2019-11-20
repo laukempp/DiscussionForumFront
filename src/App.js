@@ -10,12 +10,14 @@ function App() {
       <Router>
         <Navigation title={"Koodifoorumi"} />
         <Switch>
-          {/* <Route path="/" exact component={Home}></Route> */}
+          <Route path="/" exact component={Home}></Route>
           <Route path="/topics" exact component={TopicList}></Route>
-          {/* <Route path="/topicform" component={TopicForm}></Route>
+          <Route path="/topicform" component={TopicForm}></Route>
           <Route path="/topics/:id" component={SingleTopic}></Route>
-          <Route component={NotFound}></Route> * */}
+
+          <Route component={NotFound}></Route>
         </Switch>
+        
       </Router>
     </div>
   );
