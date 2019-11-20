@@ -46,7 +46,7 @@ export default class SearchResult extends React.Component {
                 {this.state.searchResults.length > 0 ? (
                     
                     <pre>
-                        <small>{test = JSON.parse(this.state.searchResults, null, 2)}{test.title}</small>
+                        <small>{JSON.stringify(this.state.searchResults, null, 2)}</small>
                     </pre>
                 ) : (
                     <SearchNotFound />
