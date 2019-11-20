@@ -54,7 +54,7 @@ class Search extends React.Component {
                             placeholder="Etsi"
                             className="mr-sm-2"
                         />
-                        <Button onClick={this.handleSearchSubmit} variant="outline-info">
+                        <Button onClick={this.handleSearchSubmit} variant="info">
                             Etsi
                         </Button>
                     </Form>

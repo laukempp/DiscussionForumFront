@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Result from './Result';
+import { Table } from 'reactstrap';
 export default class ResultList extends Component {
     render() {
         var list = this.props.result.map((data, key) =>{
@@ -9,7 +10,7 @@ export default class ResultList extends Component {
         });
         
         return (
-            <table>
+            <Table hover>
                         <thead>
                             <tr>
                                 <th>Otsikko:</th>
@@ -21,7 +22,7 @@ export default class ResultList extends Component {
                             {list}
                             
                         </tbody>
-                    </table>
+                    </Table>
         )
     }
 }

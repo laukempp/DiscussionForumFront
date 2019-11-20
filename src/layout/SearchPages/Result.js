@@ -6,7 +6,7 @@ export default class Result extends Component {
         let time = new Date(this.props.data.posttime).toLocaleTimeString('fi-FI');
 
         return (
-            <tr className="result">
+            <tr>
                 <td>{this.props.data.title}</td>
                 <td>{this.props.data.nickname}</td>
                 <td>{timed} {time}</td>
