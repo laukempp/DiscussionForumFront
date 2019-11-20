@@ -51,7 +51,7 @@ class Search extends React.Component {
                             value={this.state.searchText}
                             onKeyUp={this.handleSearchKeyUp}
                             type="text"
-                            placeholder="Search"
+                            placeholder="Etsi"
                             className="mr-sm-2"
                         />
                         <Button onClick={this.handleSearchSubmit} variant="outline-info">

@@ -1,6 +1,7 @@
 import React from "react";
  import {getAllTopics} from "../../service/request";
 import SearchNotFound from './SearchNotFound';
+import ResultList from './ResultList';
 export default class SearchResult extends React.Component {
     state = {
         isLoading: true,
@@ -32,8 +33,11 @@ export default class SearchResult extends React.Component {
             this.handleSearch();
         }
     }
-
+example () {
+    this.setState({result: getAllTopics});
+}
     render() {
+        
         let toRender = this.state.isLoading ? (
             <h1>Lataa...</h1>
         ) : (
@@ -43,11 +47,12 @@ export default class SearchResult extends React.Component {
                     <li>Hakusana: "{this.state.searchText}"</li>
                     <li>Osumia: {this.state.searchResults.length}</li>
                 </ul>
+                {console.dir(this.state.searchResults)}
                 {this.state.searchResults.length > 0 ? (
                     
-                    <pre>
-                        <small>{JSON.stringify(this.state.searchResults, null, 2)}</small>
-                    </pre>
+                    <div>
+                       <ResultList result={this.state.searchResults} />
+                    </div>
                 ) : (
                     <SearchNotFound />
                 )}
