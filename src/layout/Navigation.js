@@ -3,11 +3,13 @@ import Navbar from "react-bootstrap/navbar";
 import Nav from "react-bootstrap/nav";
 import NavbarBrand from "react-bootstrap/navbarbrand";
 import { Link } from "react-router-dom";
-
+import Search from './Search';
 const Navigation = props => {
   return (
     <Navbar className="navbar bg-success">
-      <NavbarBrand>{props.title}</NavbarBrand>
+      <Nav.Link eventKey={1} as={Link} to="/">
+           <Nav.Item>{props.title}</Nav.Item>
+        </Nav.Link>
       <Nav.Item>
         <Nav.Link eventKey={1} as={Link} to="/">
           Koti
@@ -23,6 +25,7 @@ const Navigation = props => {
           Uusi keskustelu
         </Nav.Link>
       </Nav.Item>
+      <Search />
     </Navbar>
   );
 };
