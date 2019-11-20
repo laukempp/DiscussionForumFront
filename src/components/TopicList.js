@@ -4,10 +4,12 @@ import React, { Component } from "react";
 import { getAllTopics } from "../service/request";
 import TopicItem from "./TopicItem";
 import { Table, Button, Container, Row, Col } from "reactstrap";
+import { Link } from "react-router-dom";
 
 export default class TopicList extends Component {
   state = {
-    topics: []
+    topics: [],
+    loading: true
   };
   componentDidMount() {
     this.getTopicList();
@@ -15,7 +17,7 @@ export default class TopicList extends Component {
 
   getTopicList = () => {
     getAllTopics().then(topics => {
-      this.setState({ topics });
+      this.setState({ topics, loading: false });
     });
   };
 
@@ -33,7 +35,9 @@ export default class TopicList extends Component {
         </Row>
         <Row>
           <Col>
-            <Button color="success">Uusi keskustelu</Button>
+            <Link to={"/topicsform"}>
+              <Button color="success">Uusi keskustelu</Button>
+            </Link>
           </Col>
         </Row>
         <Row>
