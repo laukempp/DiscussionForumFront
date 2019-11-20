@@ -8,13 +8,13 @@ function App() {
     <div className="App">
       <Router>
         <Navigation title={"Koodifoorumi"} />
-        <Switch>
+        {/* <Switch>
           <Route path="/" exact component={Home}></Route>
           <Route path="/topics" exact component={TopicList}></Route>
           <Route path="/topicform" component={TopicForm}></Route>
           <Route path="/topics/:id" component={SingleTopic}></Route>
           <Route component={NotFound}></Route>
-        </Switch>
+        </Switch> */}
       </Router>
     </div>
   );
