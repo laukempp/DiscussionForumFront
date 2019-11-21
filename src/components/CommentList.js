@@ -12,11 +12,12 @@ state = {
     comments: []
 };
 componentDidMount() {
-    this.getCommentList();
+    const {id} = this.props.match.params;
+    this.getCommentList(id);
 }
 
 getCommentList = () => {
-    getAllComments().then(comments => {
+    getAllComments(this.props.match.params.id).then(comments => {
     this.setState({ comments });
     });
 };
@@ -55,7 +56,7 @@ render() {
         </Row>
         <Row className="commentForm">
         <Col>
-            <CommentForm />
+            <CommentForm id={this.props.match.params.id}/>
         </Col>
         </Row>
     </Container>

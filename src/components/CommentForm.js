@@ -1,13 +1,13 @@
 //Formi uuden kommentin luomiseen.
 import React, { Component } from 'react';
 import { Form, Button, Container } from 'react-bootstrap';
-import { postComment } from '../service/request.js';
+import { getAllComments, postComment } from '../service/request.js';
 
 class CommentForm extends Component {
 state = {nickname: '', input: '', img: ''}
 
 //Get input values
-handleNicknameChange = (e) => {this.setState({nickname: e.target.value});}
+handleNicknameChange = (e) => {this.setState({c_nickname: e.target.value});}
 handleInputChange = (e) => {this.setState({input: e.target.value});}
 handleImageChange = (e) => {this.setState({img: e.target.value});}
 
@@ -15,9 +15,9 @@ handleImageChange = (e) => {this.setState({img: e.target.value});}
 handleCreateClick = (e) => {
     e.preventDefault();
     console.log(this.state);
-    postComment(this.state)
+    postComment(this.props.id, this.state)
         .then(res => {
-            this.setState({nickname: '', input:'', img: ''});
+            this.setState({c_nickname: '', input:'', img: ''});
         })
         .then(console.log("Kommentti lisätty onnistuneesti."));
 }
@@ -29,7 +29,7 @@ handleCreateClick = (e) => {
             <Form className="form">
             <Form.Group>
                 <Form.Label htmlFor="form_nickname">Nimimerkki</Form.Label>
-                <Form.Control size="sm" type="text" placeholder="Nimimerkki" id="form_nickname" value={this.state.nickname} onChange={this.handleNicknameChange} required="required"></Form.Control>
+                <Form.Control size="sm" type="text" placeholder="Nimimerkki" id="form_nickname" value={this.state.c_nickname} onChange={this.handleNicknameChange} required="required"></Form.Control>
             </Form.Group>
             <Form.Group>
                 <Form.Label htmlFor="form_input">Viesti</Form.Label>

@@ -35,7 +35,7 @@ export const editTopic = id => {
 //Käsitellään kommentteja
 
 export const getAllComments = id => {
-  return fetch(url/`${id}/comments`)
+  return fetch(`${url}/${id}/comments`)
   .then(res => res.json()); 
 };
 
@@ -44,7 +44,7 @@ export const getSingleComment = id => {
 };
 
 export const postComment = (id, comment) => {
-  return fetch(url/`${id}/comments`, {
+  return fetch(`${url}/${id}/comments`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(comment)
