@@ -38,6 +38,7 @@ ul {
 
 img {
   width: 100%;
+  padding: 15px;
 }
 
 /* Utilities */
@@ -411,4 +412,13 @@ table th {
     text-align: center;
     justify-content: center;
   }
+}
+.gallery {
+  margin: auto;
+}
+.homeHeader {
+  text-align: center;
+}
+.homeButton {
+  text-align: center;
 }
