@@ -14,9 +14,7 @@ export default class TopicItem extends Component {
         <td>{nickname}</td>
         <td>{title}</td>
         <td>{posttime}</td>
-        <td>
-          {timed} {time}
-        </td>
+        <td>{timed} {time}</td>
       </tr>
     );
   }
