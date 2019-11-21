@@ -22,9 +22,15 @@ export default class TopicList extends Component {
   };
 
   render() {
-    const topicrows = this.state.topics.map(topic => {
-      return <TopicItem topic={topic} {...this.props} />;
-    });
+    const topicrows = this.state.topics
+      .sort(function compare(a, b) {
+        var dateA = new Date(a.posttime);
+        var dateB = new Date(b.posttime);
+        return dateB - dateA;
+      })
+      .map(topic => {
+        return <TopicItem topic={topic} {...this.props} />;
+      });
 
     return (
       <Container className="topicTable">

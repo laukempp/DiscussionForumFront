@@ -2,6 +2,7 @@
 import React, { Component } from "react";
 import { getSingleTopic } from "../service/request";
 import { Table, Container, Row, Col } from "reactstrap";
+import CommentList from "./CommentList";
 
 export default class SingleTopic extends Component {
   state = {
