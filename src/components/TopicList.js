@@ -23,7 +23,7 @@ export default class TopicList extends Component {
 
   render() {
     const topicrows = this.state.topics.map(topic => {
-      return <TopicItem topic={topic} />;
+      return <TopicItem topic={topic} {...this.props} />;
     });
 
     return (
