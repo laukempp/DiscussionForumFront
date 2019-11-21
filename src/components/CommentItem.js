@@ -7,7 +7,7 @@ render() {
     let time = new Date(posttime).toLocaleTimeString('fi-FI')
     return (
     <tr key={id}>
-        <th scope="row">{id}</th>
+        {/* <th scope="row">{id}</th> */}
         <td>{c_nickname}</td>
         <td>{input}</td>
         <td>{img}</td>

@@ -3,7 +3,9 @@
 import React, { Component } from "react";
 import { getAllComments } from "../service/request";
 import CommentItem from "./CommentItem";
+import CommentForm from "./CommentForm";
 import { Table, Button, Container, Row, Col } from "reactstrap";
+import { Link } from 'react-router-dom'
 
 export default class CommentList extends Component {
 state = {
@@ -28,12 +30,12 @@ render() {
     <Container className="commentTable">
         <Row>
         <Col>
-            <h1 style={{ margin: "20px 0" }}>Keskustelun kommentit</h1>
+            <h1 style={{ margin: "20px 0" }}>Tähän keskustelun aihe</h1>
         </Col>
         </Row>
         <Row>
         <Col>
-            <Button color="success">Uusi kommentti</Button>
+            <Button color="success">Lisää uusi kommentti</Button>
         </Col>
         </Row>
         <Row>
@@ -41,7 +43,7 @@ render() {
             <Table responsive hover>
             <thead>
                 <tr>
-                <th>Kommentin id</th>
+                {/* <th>Kommentin id</th> */}
                 <th>Nimimerkki</th>
                 <th>Kommentti</th>
                 <th>Postausaika</th>
@@ -49,6 +51,11 @@ render() {
             </thead>
             <tbody>{commentrows}</tbody>
             </Table>
+        </Col>
+        </Row>
+        <Row className="commentForm">
+        <Col>
+            <CommentForm />
         </Col>
         </Row>
     </Container>

@@ -18,7 +18,6 @@ function Home() {
             } else {
                 setIndex(index + 1)
             }
-            
         }, 3000)
         return () => clearInterval(interval)
     }, [index])

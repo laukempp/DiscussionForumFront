@@ -1,7 +1,7 @@
 //Formi uuden kommentin luomiseen.
 import React, { Component } from 'react';
 import { Form, Button, Container } from 'react-bootstrap';
-import { postTopic } from '../service/request.js';
+import { postComment } from '../service/request.js';
 
 class CommentForm extends Component {
 state = {nickname: '', input: '', img: ''}
@@ -15,7 +15,7 @@ handleImageChange = (e) => {this.setState({img: e.target.value});}
 handleCreateClick = (e) => {
     e.preventDefault();
     console.log(this.state);
-    postTopic(this.state)
+    postComment(this.state)
         .then(res => {
             this.setState({nickname: '', input:'', img: ''});
         })
