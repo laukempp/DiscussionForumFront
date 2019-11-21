@@ -18,9 +18,9 @@ function App() {
           <Route path="/topicsform" component={TopicForm}></Route>
 
           <Route path="/topics/:id" component={SingleTopic}></Route>
-          <Route component={NotFound}></Route>
-         <Route path="/topics/:id" component={SingleTopic}></Route>
-          <Route component={NotFound}></Route>
+          {/* <Route component={NotFound}></Route>
+          <Route path="/topics/:id" component={SingleTopic}></Route>
+          <Route component={NotFound}></Route> */}
         </Switch>
       </Router>
     </div>
