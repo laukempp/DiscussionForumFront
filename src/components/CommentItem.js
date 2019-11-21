@@ -6,7 +6,7 @@ export default class CommentItem extends Component {
     this.props.delete(this.props.input.id);
   };
   render() {
-    const { id, c_nickname, input, img, c_posttime } = this.props.input;
+    const { id, c_nickname, input, c_posttime } = this.props.input;
 
     let timed = new Date(c_posttime).toLocaleDateString("fi-FI");
     let time = new Date(c_posttime).toLocaleTimeString("fi-FI");
@@ -15,8 +15,8 @@ export default class CommentItem extends Component {
       <tr key={id}>
         {/* <th scope="row">{id}</th> */}
         <td>{c_nickname}</td>
-        <td>{input}</td>
-        <td>{img}</td>
+
+        {/* <td>{img}</td> */}
         <td>
           {timed} {time}
         </td>

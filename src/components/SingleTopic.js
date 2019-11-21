@@ -10,7 +10,7 @@ export default class SingleTopic extends Component {
   };
 
   componentDidMount() {
-    const id = this.props.match.params.id;
+    const id = this.props.id;
     getSingleTopic(id).then(topic => {
       this.setState({ topic });
     });

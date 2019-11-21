@@ -13,7 +13,6 @@ export default class TopicItem extends Component {
         <th scope="row">{id}</th>
         <td>{nickname}</td>
         <td>{title}</td>
-        {/* <td>{posttime}</td> */}
         <td>
           {timed} {time}
         </td>

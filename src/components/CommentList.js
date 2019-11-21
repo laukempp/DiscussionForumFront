@@ -12,12 +12,12 @@ export default class CommentList extends Component {
     comments: []
   };
   componentDidMount() {
-    const { id } = this.props.match.params;
+    const { id } = this.props.id;
     this.getCommentList(id);
   }
 
   getCommentList = () => {
-    getAllComments(this.props.match.params.id).then(comments => {
+    getAllComments(this.props.id).then(comments => {
       this.setState({ comments });
     });
   };
@@ -42,16 +42,7 @@ export default class CommentList extends Component {
 
     return (
       <Container className="commentTable">
-        <Row>
-          <Col>
-            <h1 style={{ margin: "20px 0" }}>Tähän keskustelun aihe</h1>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <Button color="success">Lisää uusi kommentti</Button>
-          </Col>
-        </Row>
+        <Row></Row>
         <Row>
           <Col>
             <Table responsive hover>
@@ -72,9 +63,9 @@ export default class CommentList extends Component {
             <CommentForm
               getCommentList={this.getCommentList}
               id="commentForm"
-              id={this.props.match.params.id}
+              id={this.props.id}
               onClick={() =>
-                this.props.history.push(`/topics/${this.props.match.params.id}`)
+                this.props.history.push(`/topics/${this.props.id}`)
               }
             />
           </Col>

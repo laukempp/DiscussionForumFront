@@ -58,7 +58,7 @@ class CommentForm extends Component {
               onChange={this.handleInputChange}
             ></Form.Control>
           </Form.Group>
-          <Form.Group>
+          {/* <Form.Group>
             <Form.Label htmlFor="form_title">Lisää kuva</Form.Label>
             <Form.Control
               size="sm"
@@ -67,7 +67,7 @@ class CommentForm extends Component {
               value={this.state.img}
               onChange={this.handleImageChange}
             ></Form.Control>
-          </Form.Group>
+          </Form.Group> */}
           <Button
             variant="outline-info"
             type="submit"
