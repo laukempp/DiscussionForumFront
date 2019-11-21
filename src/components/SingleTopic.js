@@ -2,6 +2,7 @@
 import React, { Component } from "react";
 import { getSingleTopic } from "../service/request";
 import { Table, Container, Row, Col } from "reactstrap";
+import CommentList from "./CommentList";
 
 export default class SingleTopic extends Component {
   state = {
@@ -9,7 +10,7 @@ export default class SingleTopic extends Component {
   };
 
   componentDidMount() {
-    const id = this.props.match.params.id;
+    const id = this.props.id;
     getSingleTopic(id).then(topic => {
       this.setState({ topic });
     });

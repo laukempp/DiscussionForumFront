@@ -5,60 +5,72 @@ import { getAllComments } from "../service/request";
 import CommentItem from "./CommentItem";
 import CommentForm from "./CommentForm";
 import { Table, Button, Container, Row, Col } from "reactstrap";
+import { deleteComment } from "../service/request";
 
 export default class CommentList extends Component {
-state = {
+  state = {
     comments: []
-};
-componentDidMount() {
-    const {id} = this.props.match.params;
+  };
+  componentDidMount() {
+    const { id } = this.props.id;
     this.getCommentList(id);
-}
+  }
 
-getCommentList = () => {
-    getAllComments(this.props.match.params.id).then(comments => {
-    this.setState({ comments });
+  getCommentList = () => {
+    getAllComments(this.props.id).then(comments => {
+      this.setState({ comments });
     });
-};
+  };
 
-render() {
-    const commentrows = this.state.comments.map(input => {
-    return <CommentItem input={input} />;
+  deleteOneComment = id => {
+    deleteComment(id).then(vastaus => {
+      this.getCommentList();
     });
+  };
+
+  render() {
+    const commentrows = this.state.comments
+      .sort(function compare(a, b) {
+        var dateA = new Date(a.c_posttime);
+        var dateB = new Date(b.c_posttime);
+        return dateB - dateA;
+      })
+
+      .map(input => {
+        return <CommentItem input={input} delete={this.deleteOneComment} />;
+      });
 
     return (
-    <Container className="commentTable">
+      <Container className="commentTable">
+        <Row></Row>
         <Row>
-        <Col>
-            <h1 style={{ margin: "20px 0" }}>Tähän keskustelun aihe</h1>
-        </Col>
-        </Row>
-        <Row>
-        <Col>
-            <Button color="success">Lisää uusi kommentti</Button>
-        </Col>
-        </Row>
-        <Row>
-        <Col>
+          <Col>
             <Table responsive hover>
-            <thead>
+              <thead>
                 <tr>
-                {/* <th>Kommentin id</th> */}
-                <th>Nimimerkki</th>
-                <th>Kommentti</th>
-                <th>Postausaika</th>
+                  {/* <th>Kommentin id</th> */}
+                  <th>Nimimerkki</th>
+                  <th>Kommentti</th>
+                  <th>Postausaika</th>
                 </tr>
-            </thead>
-            <tbody>{commentrows}</tbody>
+              </thead>
+              <tbody>{commentrows}</tbody>
             </Table>
-        </Col>
+          </Col>
         </Row>
         <Row>
-        <Col>
-            <CommentForm id="commentForm" id={this.props.match.params.id}/>
-        </Col>
+          <Col>
+            <CommentForm
+              getCommentList={this.getCommentList}
+              id="commentForm"
+              id={this.props.id}
+              onClick={() =>
+                this.props.history.push(`/topics/${this.props.id}`)
+              }
+            />
+          </Col>
         </Row>
-    </Container>
+      </Container>
     );
-}
+  }
 }
