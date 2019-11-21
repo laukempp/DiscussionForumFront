@@ -24,8 +24,10 @@ class TopicForm extends Component {
     console.log(this.state);
     postTopic(this.state)
       .then(res => {
-        this.setState({ title: "", nickname: "", input: "" });
+        this.props.history.push("/topics");
       })
+      //     this.setState({ title: "", nickname: "", input: "" });
+      //   })
       .then(console.log("Topic lisätty onnistuneesti."));
   };
 

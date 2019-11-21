@@ -29,9 +29,16 @@ export default class CommentList extends Component {
   };
 
   render() {
-    const commentrows = this.state.comments.map(input => {
-      return <CommentItem input={input} delete={this.deleteOneComment} />;
-    });
+    const commentrows = this.state.comments
+      .sort(function compare(a, b) {
+        var dateA = new Date(a.c_posttime);
+        var dateB = new Date(b.c_posttime);
+        return dateB - dateA;
+      })
+
+      .map(input => {
+        return <CommentItem input={input} delete={this.deleteOneComment} />;
+      });
 
     return (
       <Container className="commentTable">
@@ -62,7 +69,14 @@ export default class CommentList extends Component {
         </Row>
         <Row>
           <Col>
-            <CommentForm id="commentForm" id={this.props.match.params.id} />
+            <CommentForm
+              getCommentList={this.getCommentList}
+              id="commentForm"
+              id={this.props.match.params.id}
+              onClick={() =>
+                this.props.history.push(`/topics/${this.props.match.params.id}`)
+              }
+            />
           </Col>
         </Row>
       </Container>

@@ -18,9 +18,9 @@ function App() {
           <Route path="/" exact component={Home}></Route>
           <Route path="/topics" exact component={TopicList}></Route>
           <Route path="/topicsform" component={TopicForm}></Route>
-
+          <Route path="/topics/:id" component={CommentList}></Route>
           <Route path="/topics/:id" component={SingleTopic}></Route>
-          {/* <Route path="/topics/:id" component={CommentList}></Route>   */}
+
           <Route component={NotFound}></Route>
         </Switch>
       </Router>
