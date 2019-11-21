@@ -1,4 +1,4 @@
-//CommentItemit listattuna api/topics/:id/comments -routessa
+//CommentItemit listattuna api/topics -routessa
 
 import React, { Component } from "react";
 import { getAllComments } from "../service/request";

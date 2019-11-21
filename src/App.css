@@ -416,3 +416,9 @@ table th {
 .gallery {
   margin: auto;
 }
+.homeHeader {
+  text-align: center;
+}
+.homeButton {
+  text-align: center;
+}
