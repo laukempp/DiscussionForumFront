@@ -45,11 +45,10 @@ export default class TopicList extends Component {
             <Table responsive hover>
               <thead>
                 <tr>
-                  <th>Post id</th>
-                  <th>nickname</th>
-                  <th>title</th>
-                  <th>comment</th>
-                  <th>posttime</th>
+                  <th>Keskustelun id</th>
+                  <th>Nimimerkki</th>
+                  <th>Otsikko</th>
+                  <th>Postausaika</th>
                 </tr>
               </thead>
               <tbody>{topicrows}</tbody>
