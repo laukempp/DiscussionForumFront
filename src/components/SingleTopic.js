@@ -23,7 +23,7 @@ export default class SingleTopic extends Component {
           <Table>
             <th>{this.state.topic.id}</th>
             <th>{this.state.topic.nickname}</th>
-            <th>{this.state.topic.title}></th>
+            <th>{this.state.topic.title}</th>
             <th>{this.state.topic.posttime}</th>
           </Table>
         ) : (

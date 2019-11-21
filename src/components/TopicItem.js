@@ -15,9 +15,6 @@ export default class TopicItem extends Component {
         <td>{title}</td>
         <td>{posttime}</td>
         <td>{timed} {time}</td>
-        <td>
-          </div>
-        </td>
       </tr>
     );
   }

@@ -5,7 +5,6 @@ import { getAllComments } from "../service/request";
 import CommentItem from "./CommentItem";
 import CommentForm from "./CommentForm";
 import { Table, Button, Container, Row, Col } from "reactstrap";
-import { Link } from 'react-router-dom'
 
 export default class CommentList extends Component {
 state = {
@@ -54,9 +53,9 @@ render() {
             </Table>
         </Col>
         </Row>
-        <Row className="commentForm">
+        <Row>
         <Col>
-            <CommentForm id={this.props.match.params.id}/>
+            <CommentForm id="commentForm" id={this.props.match.params.id}/>
         </Col>
         </Row>
     </Container>
