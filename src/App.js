@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import TopicForm from "./components/TopicForm";
 import Home from "./components/Home";
 import TopicList from "./components/TopicList";
+import CommentList from './components/CommentList';
 import SingleTopic from "./components/SingleTopic";
 
 function App() {
@@ -16,11 +17,9 @@ function App() {
           <Route path="/" exact component={Home}></Route>
           <Route path="/topics" exact component={TopicList}></Route>
           <Route path="/topicsform" component={TopicForm}></Route>
-
-          <Route path="/topics/:id" component={SingleTopic}></Route>
-          {/* <Route component={NotFound}></Route>
-          <Route path="/topics/:id" component={SingleTopic}></Route>
-          <Route component={NotFound}></Route> */}
+          <Route path="/topics/:id/comments" component={CommentList}></Route>
+         <Route path="/topics/:id" component={SingleTopic}></Route>
+          <Route component={NotFound}></Route>
         </Switch>
       </Router>
     </div>
