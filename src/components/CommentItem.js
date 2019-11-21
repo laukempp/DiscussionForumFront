@@ -15,6 +15,7 @@ export default class CommentItem extends Component {
       <tr key={id}>
         {/* <th scope="row">{id}</th> */}
         <td>{c_nickname}</td>
+        <td>{input}</td>
 
         {/* <td>{img}</td> */}
         <td>
