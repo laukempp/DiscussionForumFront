@@ -1,23 +1,39 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import { Button } from "reactstrap";
 
 export default class CommentItem extends Component {
-render() {
-    const { id, c_nickname, input, img, posttime } = this.props.input;
-    let time = new Date(posttime).toLocaleTimeString('fi-FI')
+  poistaKommentti = () => {
+    this.props.delete(this.props.input.id);
+  };
+  render() {
+    const { id, c_nickname, input, c_posttime } = this.props.input;
+
+    let timed = new Date(c_posttime).toLocaleDateString("fi-FI");
+    let time = new Date(c_posttime).toLocaleTimeString("fi-FI");
+
     return (
-    <tr key={id}>
-        <th scope="row">{id}</th>
+      <tr key={id} className="kommenttiRivi">
+        {/* <th scope="row">{id}</th> */}
         <td>{c_nickname}</td>
         <td>{input}</td>
-        <td>{img}</td>
-        <td>{time}</td>
+
+        {/* <td>{img}</td> */}
         <td>
-        <div style={{ width: "110px" }}>
-            <Button color="danger"> Poista</Button>
-        </div>
+          {timed}
+          <br/>
+          klo {time}
         </td>
-    </tr>
+        <td>
+          <div style={{ width: "110px" }}>
+            <Button color="danger" onClick={(e) => {if (window.confirm('Haluatko varmasti poistaa kommentin?')) this.poistaKommentti(e) }}>
+              {" "}
+              <i className="fa fa-trash" aria-hidden="true"></i>
+              Poista 
+            </Button>
+          </div>
+        </td>
+      </tr>
     );
+  }
 }
-}
+/* this.poistaKommentti */

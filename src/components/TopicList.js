@@ -4,10 +4,12 @@ import React, { Component } from "react";
 import { getAllTopics } from "../service/request";
 import TopicItem from "./TopicItem";
 import { Table, Button, Container, Row, Col } from "reactstrap";
-
+import { Link } from "react-router-dom";
+import NotFound from './NotFound';
 export default class TopicList extends Component {
   state = {
-    topics: []
+    topics: [],
+    loading: true
   };
   componentDidMount() {
     this.getTopicList();
@@ -15,14 +17,20 @@ export default class TopicList extends Component {
 
   getTopicList = () => {
     getAllTopics().then(topics => {
-      this.setState({ topics });
+      this.setState({ topics, loading: false });
     });
   };
 
   render() {
-    const topicrows = this.state.topics.map(topic => {
-      return <TopicItem topic={topic} />;
-    });
+    const topicrows = this.state.topics
+      .sort(function compare(a, b) {
+        var dateA = new Date(a.posttime);
+        var dateB = new Date(b.posttime);
+        return dateB - dateA;
+      })
+      .map(topic => {
+        return <TopicItem topic={topic} {...this.props} />;
+      });
 
     return (
       <Container className="topicTable">
@@ -33,7 +41,9 @@ export default class TopicList extends Component {
         </Row>
         <Row>
           <Col>
-            <Button color="success">Uusi keskustelu</Button>
+            <Link to={"/topicsform"}>
+              <Button className="button" color="dark">Aloita uusi keskustelu</Button>
+            </Link>
           </Col>
         </Row>
         <Row>

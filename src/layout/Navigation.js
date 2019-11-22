@@ -7,9 +7,9 @@ import SearchPage from './SearchPage';
 const Navigation = props => {
   return (
     <div>
-    <Navbar className="navbar bg-success">
+    <Navbar className="navbar bg-dark">
       <Nav.Link eventKey={1} as={Link} to="/">
-           <Nav.Item>{props.title}</Nav.Item>
+           <Nav.Item><h3>{props.title}</h3></Nav.Item>
         </Nav.Link>
       <Nav.Item>
         <Nav.Link eventKey={1} as={Link} to="/">
@@ -29,7 +29,7 @@ const Navigation = props => {
       <Search />
      
     </Navbar>
-    <SearchPage />
+    {/* <SearchPage /> */}
     </div>
   );
 };
