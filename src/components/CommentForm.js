@@ -1,7 +1,7 @@
 //Formi uuden kommentin luomiseen.
 import React, { Component } from "react";
 import { Form, Button, Container } from "react-bootstrap";
-import { getAllComments, postComment } from "../service/request.js";
+import { postComment } from "../service/request.js";
 
 class CommentForm extends Component {
   state = { c_nickname: "", input: "", img: "" };
@@ -23,7 +23,7 @@ class CommentForm extends Component {
     console.log(this.state);
     postComment(this.props.id, this.state)
       .then(res => {
-        this.setState({ c_nickname: "", input: "", img: "" });
+        this.setState({ c_nickname: "", input: "" });
       })
       .then(this.props.getCommentList)
 
@@ -33,7 +33,7 @@ class CommentForm extends Component {
   render() {
     return (
       <Container className="formContainer">
-        <h2>Lisää uusi kommentti</h2>
+        <h3>Lisää uusi kommentti</h3>
         <Form className="form">
           <Form.Group>
             <Form.Label htmlFor="form_nickname">Nimimerkki</Form.Label>
@@ -58,16 +58,6 @@ class CommentForm extends Component {
               onChange={this.handleInputChange}
             ></Form.Control>
           </Form.Group>
-          {/* <Form.Group>
-            <Form.Label htmlFor="form_title">Lisää kuva</Form.Label>
-            <Form.Control
-              size="sm"
-              type="file"
-              id="form_image"
-              value={this.state.img}
-              onChange={this.handleImageChange}
-            ></Form.Control>
-          </Form.Group> */}
           <Button
             variant="outline-info"
             type="submit"

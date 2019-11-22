@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Switch, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 
 import {Form, FormControl, Button } from "react-bootstrap";
@@ -54,7 +54,7 @@ class Search extends React.Component {
                             placeholder="Etsi"
                             className="mr-sm-2"
                         />
-                        <Button onClick={this.handleSearchSubmit} variant="outline-info">
+                        <Button onClick={this.handleSearchSubmit} variant="outline-success">
                             Etsi
                         </Button>
                     </Form>

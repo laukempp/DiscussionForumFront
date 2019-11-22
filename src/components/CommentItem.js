@@ -12,20 +12,23 @@ export default class CommentItem extends Component {
     let time = new Date(c_posttime).toLocaleTimeString("fi-FI");
 
     return (
-      <tr key={id}>
+      <tr key={id} className="kommenttiRivi">
         {/* <th scope="row">{id}</th> */}
         <td>{c_nickname}</td>
         <td>{input}</td>
 
         {/* <td>{img}</td> */}
         <td>
-          {timed} {time}
+          {timed}
+          <br/>
+          klo {time}
         </td>
         <td>
           <div style={{ width: "110px" }}>
-            <Button color="danger" onClick={this.poistaKommentti}>
+            <Button color="danger" onClick={(e) => {if (window.confirm('Haluatko varmasti poistaa kommentin?')) this.poistaKommentti(e) }}>
               {" "}
-              Poista
+              <i className="fa fa-trash" aria-hidden="true"></i>
+              Poista 
             </Button>
           </div>
         </td>
@@ -33,3 +36,4 @@ export default class CommentItem extends Component {
     );
   }
 }
+/* this.poistaKommentti */

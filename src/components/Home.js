@@ -18,14 +18,14 @@ function Home() {
             } else {
                 setIndex(index + 1)
             }
-        }, 3000)
+        }, 5000)
         return () => clearInterval(interval)
     }, [index])
 
         return (
             <div className="galleryDiv">
-            <p className="homeHeader"><h1>Tervetuloa Koodifoorumille!</h1></p>
-            <h4 className="homeHeader"></h4>
+            <h1 className="homeHeader">Tervetuloa <b>Tietotulvaan</b></h1>
+            <h3 className="homeHeader">Sinun koodiyhteisösi</h3>
             <Gallery
             className="gallery"
             style={{
@@ -41,7 +41,7 @@ function Home() {
             </Gallery>
             <div className="homeButton">
             <Link to="/topics">
-                <Button color="success">Tästä keskusteluihin</Button>
+                <Button className="homeBtn" color="dark">Tästä keskustelemaan</Button>
             </Link>
             </div>
             </div>
