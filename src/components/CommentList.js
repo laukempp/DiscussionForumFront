@@ -4,7 +4,7 @@ import React, { Component } from "react";
 import { getAllComments } from "../service/request";
 import CommentItem from "./CommentItem";
 import CommentForm from "./CommentForm";
-import { Table, Button, Container, Row, Col } from "reactstrap";
+import { Table, Container, Row, Col } from "reactstrap";
 import { deleteComment } from "../service/request";
 
 export default class CommentList extends Component {
@@ -23,6 +23,7 @@ export default class CommentList extends Component {
   };
 
   deleteOneComment = id => {
+    
     deleteComment(id).then(vastaus => {
       this.getCommentList();
     });
@@ -30,11 +31,11 @@ export default class CommentList extends Component {
 
   render() {
     const commentrows = this.state.comments
-      .sort(function compare(a, b) {
+/*       .sort(function compare(a, b) {
         var dateA = new Date(a.c_posttime);
         var dateB = new Date(b.c_posttime);
         return dateB - dateA;
-      })
+      }) */
 
       .map(input => {
         return <CommentItem input={input} delete={this.deleteOneComment} />;
@@ -44,7 +45,7 @@ export default class CommentList extends Component {
       <Container className="commentTable">
         <Row></Row>
         <Row>
-          <Col>
+          <Col className='kommenttiBoksi'>
             <Table responsive hover>
               <thead>
                 <tr>
@@ -54,7 +55,7 @@ export default class CommentList extends Component {
                   <th>Postausaika</th>
                 </tr>
               </thead>
-              <tbody>{commentrows}</tbody>
+              <tbody >{commentrows}</tbody>
             </Table>
           </Col>
         </Row>

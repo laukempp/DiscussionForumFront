@@ -5,7 +5,7 @@ import { getAllTopics } from "../service/request";
 import TopicItem from "./TopicItem";
 import { Table, Button, Container, Row, Col } from "reactstrap";
 import { Link } from "react-router-dom";
-
+import NotFound from './NotFound';
 export default class TopicList extends Component {
   state = {
     topics: [],
@@ -42,7 +42,7 @@ export default class TopicList extends Component {
         <Row>
           <Col>
             <Link to={"/topicsform"}>
-              <Button color="success">Uusi keskustelu</Button>
+              <Button className="button" color="dark">Aloita uusi keskustelu</Button>
             </Link>
           </Col>
         </Row>

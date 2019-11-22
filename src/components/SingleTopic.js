@@ -2,7 +2,6 @@
 import React, { Component } from "react";
 import { getSingleTopic } from "../service/request";
 import { Table, Container, Row, Col } from "reactstrap";
-import CommentList from "./CommentList";
 
 export default class SingleTopic extends Component {
   state = {
@@ -13,7 +12,8 @@ export default class SingleTopic extends Component {
     const id = this.props.id;
     getSingleTopic(id).then(topic => {
       this.setState({ topic });
-    });
+    })
+    .catch (err => {this.props.history.push("/404")});
   }
 
   render() {
@@ -21,7 +21,7 @@ export default class SingleTopic extends Component {
     // let time = new Date(this.state.topic.posttime).toLocaleTimeString("fi-FI");
     return (
       <div>
-        <h1>Otsikko</h1>
+        {/* <h1>Otsikko</h1> */}
         {this.state.topic != null ? (
           <Container className="topicTable">
             <Row>
@@ -34,7 +34,7 @@ export default class SingleTopic extends Component {
                 <Table responsive hover>
                   <thead>
                     <tr>
-                      <th>{this.state.topic.id}</th>
+                      {/* <th>{this.state.topic.id}</th> */}
                       <th>{this.state.topic.nickname}</th>
                       <th>{this.state.topic.title}</th>
                       <th>
@@ -55,7 +55,7 @@ export default class SingleTopic extends Component {
             </Row>
           </Container>
         ) : (
-          <p>ladataan</p>
+          <p>Ladataan...</p>
         )}
       </div>
     );

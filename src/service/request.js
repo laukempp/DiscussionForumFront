@@ -6,8 +6,9 @@ export const getAllTopics = () => {
   return fetch(url).then(res => res.json()); 
 };
 
-export const getSingleTopic = id => {
-  return fetch(`${url}/${id}`).then(res => res.json());
+export const getSingleTopic = (id, err) => {
+  return fetch(`${url}/${id}`).then(res => res.json())
+  .catch(err => err);
 };
 
 export const postTopic = topic => {
@@ -40,7 +41,10 @@ export const getAllComments = id => {
 };
 
 export const getSingleComment = id => {
-  return fetch(`${url}/${id}/comments/${id}`).then(res => res.json());
+  return fetch(`${url}/${id}/comments/${id}`).then(res => {
+    if (res.status === 200) return res.json()
+    else {throw new Error("Topicia ei löytynyt")}
+    });
 };
 
 export const postComment = (id, comment) => {
