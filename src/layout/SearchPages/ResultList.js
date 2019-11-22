@@ -1,10 +1,6 @@
 import React, { Component } from 'react'
 import Result from './Result';
 import { Table } from 'reactstrap';
-<<<<<<< HEAD
-=======
-
->>>>>>> c0796ecc329d2371c20190d0a7c1d2395c7550ea
 export default class ResultList extends Component {
     render() {
         var list = this.props.result.map((data, key) =>{
@@ -24,7 +20,6 @@ export default class ResultList extends Component {
                         </thead>
                         <tbody>
                             {list}
-                            
                         </tbody>
                     </Table>
         )
